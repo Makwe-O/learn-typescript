@@ -23,9 +23,6 @@ skill.football = 3;
 //array
 const arr: Array<number> = [1];
 
-// Class
-class Car {}
-
 const camaro: Car = new Car();
 
 //function
