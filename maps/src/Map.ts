@@ -18,12 +18,20 @@ class CustomMap {
   }
 
   addMarker(mapData: Mappable): void {
-    new google.maps.Marker({
+    let marker = new google.maps.Marker({
       map: this.googleMap,
       position: {
         lat: mapData.location.lat,
         lng: mapData.location.long
       }
+    });
+
+    marker.addListener('click', () => {
+      let info = new google.maps.InfoWindow({
+        content: 'This is user info'
+      });
+
+      info.open(this.googleMap, marker);
     });
   }
 }
