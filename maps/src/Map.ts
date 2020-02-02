@@ -1,9 +1,4 @@
-interface Mappable {
-  location: {
-    lat: number;
-    long: number;
-  };
-}
+import { Mappable } from './interfaces/mappable';
 class CustomMap {
   private googleMap: google.maps.Map;
 
@@ -28,7 +23,7 @@ class CustomMap {
 
     marker.addListener('click', () => {
       let info = new google.maps.InfoWindow({
-        content: 'This is user info'
+        content: mapData.markerDescription()
       });
 
       info.open(this.googleMap, marker);

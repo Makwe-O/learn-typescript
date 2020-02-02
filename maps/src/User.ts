@@ -1,10 +1,12 @@
 import faker from 'faker';
-class User {
+import { Mappable } from './interfaces/mappable';
+class User implements Mappable {
   name: string;
   location: {
     lat: number;
     long: number;
   };
+
   constructor() {
     this.name = faker.name.findName();
     this.location = {
@@ -13,8 +15,8 @@ class User {
     };
   }
 
-  description(): string {
-    return `User name is ${name}`;
+  markerDescription(): string {
+    return `User name is ${this.name}`;
   }
 }
 

@@ -1,5 +1,6 @@
 import faker from 'faker';
-class Company {
+import { Mappable } from './interfaces/mappable';
+class Company implements Mappable {
   constructor() {
     this.name = faker.company.companyName();
     this.motto = faker.company.catchPhrase();
@@ -14,6 +15,11 @@ class Company {
     lat: number;
     long: number;
   };
+  markerDescription(): string {
+    return `
+    Our name is ${this.name}
+    Our company's motto is ${this.motto}`;
+  }
 }
 
 export default Company;
